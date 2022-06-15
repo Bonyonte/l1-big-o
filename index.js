@@ -2,7 +2,7 @@
 const print = (value) => console.log(value)
 
 // user scores
-const scores = [99 ,80, 77, 86, 50, 33, 76, 90, 54, 66]
+const scores = [99 ,80, 77, 86, 76, 50, 33, 76, 90, 54, 66, 76]
 
 // TODO: IDENTIFY THE TIME COMPLEXITY OF THE FOLLOWING ARRAY METHODS
 // 1: PUSH
@@ -15,15 +15,43 @@ scores.pop()
 scores.unshift(88)
 
 // 4: forEach
-scores.forEach((element) => {print(element)})
+// scores.forEach((element) => {print(element)})
 
 
 // TODO: CREATE A SIMPLE SEARCH ALGORITHM THAT USES LINEAR TIME COMPLEXITY
 const findValueLinear = (value) => {
+    let index = -1
+    let indices = []
+    for(let i = 0; i < scores.length; i++){
+       // print(`index: ${i}`)
+        const currValue = scores[i]
+        if(currValue === value){
+            indices.push(i)
+            index = indices
+        }
+    }
+    return index
     // return the index of the value if present, return -1 if absent
 }
-// print(`190 is at index: ${findValueLinear(190)}`)
-// print(`76 is at index: ${findValueLinear(76)}`)
+
+
+
+const findValueLinearWhile = (value) => {
+
+    let i = 0
+    while(i < scores.length){
+        if(scores[i] === value){
+            return i
+        }
+        i++
+    }
+    return -1    
+    // return the index of the value if present, return -1 if absent
+}
+
+
+ print(`190 is at index: ${findValueLinearWhile(190)}`)
+ print(`766 is at index: ${findValueLinear(766)}`)
 
 
 // TODO: CREATE A SIMPLE SEARCH ALGORITHM THAT USES LOGARITHMIC TIME COMPLEXITY
